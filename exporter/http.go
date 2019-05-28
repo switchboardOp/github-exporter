@@ -63,7 +63,7 @@ func paginateTargets(targets []string, token string) []string {
 		}
 
 		if resp.Header["Link"] != nil {
-			links := linkheader.Parse(resp.Header["Link"][0])
+			links := linkheader.Parse(resp.Header.Get("Link"))
 
 			for _, link := range links {
 				if link.Rel == "last" {
